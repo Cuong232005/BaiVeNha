@@ -1,3 +1,4 @@
+//Bai 1: 
 #include <stdio.h>
 #include <string.h>
 
@@ -52,5 +53,16 @@ int main() {
     printf("\n");
 
     return 0;
+}
+/* Bai 2: Em van chua lam duoc... 
+#include <stdio.h>
+#include <math.h>
+ 
+int ktra(int x) {
+    if (x <= 1) return 0; 
+    for (int i = 2; i <= sqrt(x); i++) {
+        if (x % i == 0) return 0; 
+    }
+    return 1; 
 }
 
