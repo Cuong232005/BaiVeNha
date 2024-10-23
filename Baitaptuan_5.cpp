@@ -54,15 +54,83 @@ int main() {
 
     return 0;
 }
-/* Bai 2: 
+/*Bai 2: 
 #include <stdio.h>
+#include <stdlib.h>
 #include <math.h>
- 
-int ktra(int x) {
-    if (x <= 1) return 0; 
+
+int soNT(int x) {
+    if (x < 2) return 0;
     for (int i = 2; i <= sqrt(x); i++) {
-        if (x % i == 0) return 0; 
+        if (x % i == 0) return 0;
     }
-    return 1; 
+    return 1;
 }
 
+int soNNT(int x) {
+    if (x < 4) return 0;
+    int p, q, can = sqrt(x);
+    for (p = 2; p <= can; p++) {
+        if (x % p == 0) {
+            q =x / p;
+            if (p % 2 == 1 && q % 2 == 1 && soNT(p) && soNT(q)) {
+                return 1;
+            }
+        }
+    }
+    return 0;
+}
+
+void MangBlum(int N, int** array, int* size) {
+    int count = 0;
+    *array = (int*)malloc(N * sizeof(int));
+
+    for (int i = 4; i < N; i++) {
+        if (soNNT(i)) {
+            (*array)[count++] = i;
+        }
+    }
+    *size = count;
+}
+
+void TimBlum(int* array, int size, int N) {
+    printf("Cac cap so Blum co tong la so Blum nho hon %d:\n", N);
+    for (int i = 0; i < size; i++) {
+        for (int j = i; j < size; j++) {
+            int sum = array[i] + array[j];
+            if (sum < N && soNNT(sum)) {
+                printf("(%d, %d)\n", array[i], array[j]);
+            }
+        }
+    }
+}
+
+int KTBlum(int* array, int size, int M) {
+    for (int i = 0; i < size; i++) {
+        if (array[i] == M) return 1;
+    }
+    return 0;
+}
+
+int main() {
+    int N, M;
+    int* array;
+    int size;
+
+    printf("Nhap so N: ");
+    scanf("%d", &N);
+    
+    MangBlum(N, &array, &size);
+    TimBlum(array, size, N);
+
+    printf("Nhap so Blum M de kiem tra: ");
+    scanf("%d", &M);
+    if (KTBlum(array, size, M)) {
+        printf("%d ton tai trong mang so Blum.\n", M);
+    } else {
+        printf("%d khong ton tai trong mang so Blum.\n", M);
+    }
+
+    free(array);
+    return 0;
+} */
