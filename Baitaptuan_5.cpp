@@ -14,15 +14,12 @@ void SX(int arr[], int n) {
         arr[j] = x;
     }
 }
-
 int main() {
     int n;
     printf("Nhap so luong doi tuong: ");
     scanf("%d", &n);
-    
     char mau[n][10];
     int so[n];
-
     printf("Nhap mau sac: \n");
     for (int i = 0; i < n; i++) {
         scanf("%s", mau[i]);
@@ -37,9 +34,7 @@ int main() {
             return 1;
         }
     }
-
     SX(so, n);
-
     printf("Ket qua sap xep: \n");
     for (int i = 0; i < n; i++) {
         if (so[i] == 0) {
@@ -51,7 +46,6 @@ int main() {
         }
     }
     printf("\n");
-
     return 0;
 }
 /*Bai 2: 

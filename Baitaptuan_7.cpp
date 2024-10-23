@@ -4,6 +4,7 @@ struct Danso  {
     int nam;
     int nguoi;
 };
+
 int main() {
     struct Danso data[100];
     int nam, min, max;
