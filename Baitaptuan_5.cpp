@@ -54,7 +54,7 @@ int main() {
 
     return 0;
 }
-/* Bai 2: Em van chua lam duoc... 
+/* Bai 2: 
 #include <stdio.h>
 #include <math.h>
  
